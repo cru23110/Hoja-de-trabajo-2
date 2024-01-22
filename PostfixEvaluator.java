@@ -1,4 +1,17 @@
 public class PostfixEvaluator {
+    
+    public static boolean esOperando(String c){
+        boolean flag = true;
+        int num = 0;
+        try{
+            num = Integer.parseInt(c);
+            flag = true;
+        }catch(Exception e){
+            flag = false;
+        }
+        return flag;
+    }
+    
     public static int evaluarExpresion(String expresion) {
         CustomStack<Integer> pila = new CustomStack<>();
 
@@ -17,5 +30,8 @@ public class PostfixEvaluator {
 
         return pila.pop();
     }
-
+    
+    
+    
+    
 }
