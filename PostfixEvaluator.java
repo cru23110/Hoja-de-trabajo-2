@@ -1,28 +1,31 @@
-public class PostfixEvaluator {
+public class PostfixEvaluator implements Ievaluator {
     
-    public static boolean esOperando(String c){
+    @Override
+    public boolean esOperando(String c){
         boolean flag = true;
         int num = 0;
         try{
             num = Integer.parseInt(c);
             flag = true;
-        }catch(Exception e){
+        } catch(Exception e){
             flag = false;
         }
         return flag;
     }
 
-    public static boolean esOperador(String c){
+    @Override
+    public boolean esOperador(String c){
         boolean flag = true;
         if(c.equals("+") || c.equals("-") || c.equals("/") || c.equals("*")){
             flag = true;
-        }else{
+        } else{
             flag = false;
         }
         return flag;
     }
     
-    public static int evaluarExpresion(String expresion) {
+    @Override
+    public int evaluarExpresion(String expresion) {
         CustomStack<Integer> pila = new CustomStack<>();
 
         String[] elementos = expresion.split(" ");
@@ -40,8 +43,5 @@ public class PostfixEvaluator {
 
         return pila.pop();
     }
-    
-    
-    
-    
 }
+
