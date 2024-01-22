@@ -15,7 +15,12 @@ public class Node<T> {
         return next;
     }
 
+    public void setData(T newData){
+        data = newData;
+    }
+
     public void setNext(Node<T> next) {
         this.next = next;
     }
 }
+
