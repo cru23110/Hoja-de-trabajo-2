@@ -11,6 +11,16 @@ public class PostfixEvaluator {
         }
         return flag;
     }
+
+    public static boolean esOperador(String c){
+        boolean flag = true;
+        if(c.equals("+") || c.equals("-") || c.equals("/") || c.equals("*")){
+            flag = true;
+        }else{
+            flag = false;
+        }
+        return flag;
+    }
     
     public static int evaluarExpresion(String expresion) {
         CustomStack<Integer> pila = new CustomStack<>();
