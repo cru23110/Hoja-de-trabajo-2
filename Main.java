@@ -8,8 +8,10 @@ public class Main {
             BufferedReader br = new BufferedReader(new FileReader("datos.txt"));
 
             String linea;
+            PostfixEvaluator postfixEvaluator = new PostfixEvaluator();
+
             while ((linea = br.readLine()) != null) {
-                int resultado = PostfixEvaluator.evaluarExpresion(linea);
+                int resultado = postfixEvaluator.evaluarExpresion(linea);
                 System.out.println("Resultado: " + resultado);
             }
 
@@ -19,4 +21,5 @@ public class Main {
         }
     }
 }
+
 
