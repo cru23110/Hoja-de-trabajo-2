@@ -17,6 +17,7 @@ public class Main {
 
             br.close();
         } catch (IOException e) {
+            System.out.println("Error, no existe el archivo datos.txt en el folder: " );
             e.printStackTrace();
         }
     }

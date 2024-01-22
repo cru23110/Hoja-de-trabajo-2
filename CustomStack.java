@@ -1,3 +1,5 @@
+import java.util.EmptyStackException;
+
 public class CustomStack<T> { 
     private Node<T> lastNode;
     private Node<T> firstNode;
@@ -20,6 +22,6 @@ public class CustomStack<T> {
             firstNode = firstNode.getNext();
             return data;
         }
-        return null;
+        throw new EmptyStackException();
     }
 }
