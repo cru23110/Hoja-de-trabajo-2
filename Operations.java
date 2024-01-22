@@ -8,9 +8,12 @@ public class Operations {
             case "*":
                 return operandoA * operandoB;
             case "/":
-                return operandoA / operandoB;
+                if(operandoB == 0){
+                    throw new ArithmeticException();
+                }
+                return operandoA / operandoB; 
             default:
-                throw new IllegalArgumentException("Operador no válido: " + operador);
+                throw new IllegalArgumentException("No deberias haber entrado aqui" + operador);
         }
     }
 }

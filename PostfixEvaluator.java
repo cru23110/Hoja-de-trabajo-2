@@ -1,47 +1,49 @@
 public class PostfixEvaluator {
-    
-    public static boolean esOperando(String c){
+
+    public static boolean esOperando(String c) {
         boolean flag = true;
         int num = 0;
-        try{
+        try {
             num = Integer.parseInt(c);
             flag = true;
-        }catch(Exception e){
+        } catch (Exception e) {
             flag = false;
         }
         return flag;
     }
 
-    public static boolean esOperador(String c){
+    public static boolean esOperador(String c) {
         boolean flag = true;
-        if(c.equals("+") || c.equals("-") || c.equals("/") || c.equals("*")){
+        if (c.equals("+") || c.equals("-") || c.equals("/") || c.equals("*")) {
             flag = true;
-        }else{
+        } else {
             flag = false;
         }
         return flag;
     }
-    
+
     public static int evaluarExpresion(String expresion) {
         CustomStack<Integer> pila = new CustomStack<>();
 
         String[] elementos = expresion.split(" ");
 
-        for (String elemento : elementos) {
-            if (esOperando(elemento)) {
-                pila.push(Integer.parseInt(elemento));
-            } else if (esOperador(elemento)) {
-                int operandoB = pila.pop();
-                int operandoA = pila.pop();
-                int resultado = Operations.aplicarOperacion(operandoA, operandoB, elemento);
-                pila.push(resultado);
+        try {
+            for (String elemento : elementos) {
+                if (esOperando(elemento)) {
+                    pila.push(Integer.parseInt(elemento));
+                } else if (esOperador(elemento)) {
+                    int operandoB = pila.pop();
+                    int operandoA = pila.pop();
+                    int resultado = Operations.aplicarOperacion(operandoA, operandoB, elemento);
+                    pila.push(resultado);
+                }
             }
+    
+            return pila.pop();
+        } catch (ArithmeticException e) {
+            System.out.println("Error, no se puede dividir por cero");
+            return 0; //devuelve 0 porque no se realizó ninguna operación
         }
-
-        return pila.pop();
     }
-    
-    
-    
-    
+
 }
