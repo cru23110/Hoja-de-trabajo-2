@@ -16,9 +16,9 @@ public class CustomStack<T> {
     public T pop(){
         
         if(firstNode != null){
-            T value = firstNode.getValue();
+            T data = firstNode.getData();
             firstNode = firstNode.getNext();
-            return value;
+            return data;
         }
         return null;
     }

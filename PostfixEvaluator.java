@@ -33,7 +33,7 @@ public class PostfixEvaluator {
             } else if (esOperador(elemento)) {
                 int operandoB = pila.pop();
                 int operandoA = pila.pop();
-                int resultado = Operaciones.aplicarOperacion(operandoA, operandoB, elemento);
+                int resultado = Operations.aplicarOperacion(operandoA, operandoB, elemento);
                 pila.push(resultado);
             }
         }
